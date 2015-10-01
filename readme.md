@@ -1,6 +1,6 @@
 # Список полезных сниппетов
 
-## Битрикс.
+## Битрикс
 
 #### Пустая страница
 ```
@@ -27,10 +27,9 @@ if ($cache->initCache($TTL, $uniqueString, $initDir = false))
 {
 	$arProp = $cache->getVars();
 }
-else
+elseif ($cache->startDataCache($TTL, $uniqueString, $initDir = false))
 {
 	// ... do MySQL query ...
-	$cache->startDataCache($TTL, $uniqueString, $initDir = false);
 	$cache->endDataCache($arProp);
 }
 ```
