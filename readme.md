@@ -20,6 +20,18 @@ $arMode = array('MODE' => 'php');
 $APPLICATION->IncludeFile('/path/to/file.php', $arParams, $arMode);
 ```
 
+#### Подключение шаблона после кеширования
+```
+if ($this->startResultCache()) 
+{
+	// do MySQL query
+	// ...
+	
+	$this->endResultCache();
+}
+$this->includeComponentTemplate();
+```
+
 #### Кеширование в новом ядре
 ```
 $cache = \Bitrix\Main\Data\Cache::createInstance();
@@ -29,7 +41,9 @@ if ($cache->initCache($TTL, $uniqueString, $initDir = false))
 }
 elseif ($cache->startDataCache($TTL, $uniqueString, $initDir = false))
 {
-	// ... do MySQL query ...
+	// do MySQL query 
+	// ...
+	
 	$cache->endDataCache($arProp);
 }
 ```
