@@ -15,9 +15,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php
 
 #### Включаемая область
 ```
-$arParams = array('IBLOCK_ID' => 1);
-$arMode = array('MODE' => 'php');
-$APPLICATION->IncludeFile('/path/to/file.php', $arParams, $arMode);
+$APPLICATION->IncludeFile('/path/to/file.php', array('IBLOCK_ID' => 1), array('MODE' => 'php'));
 ```
 
 #### Подключение шаблона после кеширования
